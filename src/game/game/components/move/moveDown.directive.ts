@@ -3,11 +3,12 @@ import { SleepService } from './../../service/sleep.service';
 
 @Directive({
   selector: '[moveDown]',
+  providers: [SleepService],
 })
 export class MoveDownDirective {
   topPos: number = 0;
 
-  constructor(element: ElementRef, sleepService: SleepService) {
+  constructor(public element: ElementRef, public sleepService: SleepService) {
     element.nativeElement.style.background = 'black';
     element.nativeElement.style.height = '100px';
     element.nativeElement.style.width = '100px';
